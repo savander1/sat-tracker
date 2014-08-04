@@ -56,6 +56,7 @@ dlldata.c
 
 #Azure Publishing
 PublishScripts/
+PublishProfiles/
 
 # Chutzpah Test files
 _Chutzpah*
