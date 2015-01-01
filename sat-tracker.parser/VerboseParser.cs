@@ -9,32 +9,16 @@ namespace sat_tracker.parser
 {
     public class VerboseParser : IParser
     {
+        private static SatelliteModelConfigurator Configurator = new SatelliteModelConfigurator();
         private const string Separator = ":";
-
-        internal enum LineType
-        {
-            Name,
-            CatalogNumber,
-            EpochTime,
-            ElementSet,
-            Inclination,
-            RAofNode,
-            Eccentricity,
-            ArgOfPerigee,
-            MeanAnomaly,
-            MeanMotion,
-            DecayRate,
-            EpochRev,
-            Checksum,
-            Unknown
-        }
 
         public IEnumerable<SatelliteModel> Parse(string fileContent)
         {
             var lines = fileContent.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
             var reader = new LineReader(lines);
-
+            var satellites = new List<SatelliteModel>();
+            var satellite = new SatelliteModel();
             while (reader.Read())
             {
                 var currentLine = reader.GetLine();
@@ -46,8 +30,12 @@ namespace sat_tracker.parser
                 }
 
                 var lineType = GetLineType(parts[0].ToLower().Trim());
+                var lineValue = parts[1].Trim();
+
+                satellite = Configurator.Configure(satellite, lineType, lineValue);
             }
-            
+
+            return satellites;
         }
 
         private LineType GetLineType(string lineStart)

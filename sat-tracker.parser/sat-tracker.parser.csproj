@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LineReader.cs" />
+    <Compile Include="LineType.cs" />
+    <Compile Include="SatelliteModelConfigurator.cs" />
     <Compile Include="VerboseParser.cs" />
     <Compile Include="IParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
