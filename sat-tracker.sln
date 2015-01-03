@@ -23,8 +23,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sat-tracker.parser", "sat-t
 		{A622EAAD-5708-41B8-A4BF-29DC5F624018} = {A622EAAD-5708-41B8-A4BF-29DC5F624018}
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1FC59485-69F1-42EC-8CD3-141358C2D858}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sat-tracker.tests", "sat-tracker.tests\sat-tracker.tests.csproj", "{2DF05BF8-3DDF-479C-8374-9B03B7C8C4A5}"
 EndProject
 Global
@@ -55,6 +53,5 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B1B09B9E-A711-475A-BD30-A8D62F094A1F} = {55A9EF2E-846B-4DD0-A976-994DDCD73F63}
-		{2DF05BF8-3DDF-479C-8374-9B03B7C8C4A5} = {1FC59485-69F1-42EC-8CD3-141358C2D858}
 	EndGlobalSection
 EndGlobal
