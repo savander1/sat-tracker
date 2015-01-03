@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2013 for Web
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sat-tracker", "sat-tracker\sat-tracker.csproj", "{588838EA-D26D-4271-AB8E-FBEAD133A032}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sat-tracker.Tests", "\\psf\home\Documents\Visual Studio 2013\Projects\sat-tracker\sat-tracker.Tests\sat-tracker.Tests.csproj", "{5B92CAEC-F206-4EE0-8982-4EF56AE2216A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{55A9EF2E-846B-4DD0-A976-994DDCD73F63}"
 	ProjectSection(SolutionItems) = preProject
@@ -18,6 +16,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configura
 		PublishScripts\Configurations\sat-tracker-WAWS-dev.json = PublishScripts\Configurations\sat-tracker-WAWS-dev.json
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sat-tracker.core", "sat-tracker.core\sat-tracker.core.csproj", "{A622EAAD-5708-41B8-A4BF-29DC5F624018}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sat-tracker.parser", "sat-tracker.parser\sat-tracker.parser.csproj", "{B25F2830-E5AD-4388-BE12-5C3422E5F8A5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A622EAAD-5708-41B8-A4BF-29DC5F624018} = {A622EAAD-5708-41B8-A4BF-29DC5F624018}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sat-tracker.tests", "sat-tracker.tests\sat-tracker.tests.csproj", "{2DF05BF8-3DDF-479C-8374-9B03B7C8C4A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,10 +35,18 @@ Global
 		{588838EA-D26D-4271-AB8E-FBEAD133A032}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{588838EA-D26D-4271-AB8E-FBEAD133A032}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{588838EA-D26D-4271-AB8E-FBEAD133A032}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5B92CAEC-F206-4EE0-8982-4EF56AE2216A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5B92CAEC-F206-4EE0-8982-4EF56AE2216A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5B92CAEC-F206-4EE0-8982-4EF56AE2216A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5B92CAEC-F206-4EE0-8982-4EF56AE2216A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A622EAAD-5708-41B8-A4BF-29DC5F624018}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A622EAAD-5708-41B8-A4BF-29DC5F624018}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A622EAAD-5708-41B8-A4BF-29DC5F624018}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A622EAAD-5708-41B8-A4BF-29DC5F624018}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B25F2830-E5AD-4388-BE12-5C3422E5F8A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B25F2830-E5AD-4388-BE12-5C3422E5F8A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B25F2830-E5AD-4388-BE12-5C3422E5F8A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B25F2830-E5AD-4388-BE12-5C3422E5F8A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DF05BF8-3DDF-479C-8374-9B03B7C8C4A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DF05BF8-3DDF-479C-8374-9B03B7C8C4A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DF05BF8-3DDF-479C-8374-9B03B7C8C4A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DF05BF8-3DDF-479C-8374-9B03B7C8C4A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
