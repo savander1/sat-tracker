@@ -9,11 +9,12 @@ namespace sat_tracker.parser
 {
     public class VerboseParser : IParser
     {
-        private static SatelliteModelConfigurator Configurator = new SatelliteModelConfigurator();
         private const string Separator = ":";
 
         public IEnumerable<SatelliteModel> Parse(string fileContent)
         {
+            if (fileContent == null) throw new ArgumentNullException("fileContent");
+
             var lines = fileContent.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
             var reader = new LineReader(lines);
@@ -32,7 +33,13 @@ namespace sat_tracker.parser
                 var lineType = GetLineType(parts[0].ToLower().Trim());
                 var lineValue = parts[1].Trim();
 
-                satellite = Configurator.Configure(satellite, lineType, lineValue);
+                satellite = SatelliteModelConfigurator.Configure(satellite, lineType, lineValue);
+
+                if (satellite.ObjectComplete())
+                {
+                    satellites.Add(satellite);
+                    satellite = new SatelliteModel();
+                }
             }
 
             return satellites;

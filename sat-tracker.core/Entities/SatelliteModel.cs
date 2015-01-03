@@ -12,12 +12,12 @@ namespace sat_tracker.core.Entities
         public string CatalogNumber { get; set; }
         public double EpochTime { get; set; }
         public string ElementSet  { get; set; }
-        public decimal Inclination { get; set; }
-        public decimal RAofNode { get; set; }
-        public decimal Eccentricity { get; set; }
-        public decimal ArgOfPerigee { get; set; }
-        public decimal MeanAnomaly { get; set; }
-        public decimal MeanMotion { get; set; }
+        public double Inclination { get; set; }
+        public double RAofNode { get; set; }
+        public double Eccentricity { get; set; }
+        public double ArgOfPerigee { get; set; }
+        public double MeanAnomaly { get; set; }
+        public double MeanMotion { get; set; }
         public double DecayRate { get; set; }
         public int EpochRev { get; set; }
         public int Checksum { get; set; }

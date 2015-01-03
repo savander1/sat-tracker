@@ -1,6 +1,7 @@
 ﻿using sat_tracker.core.Entities;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -9,7 +10,7 @@ namespace sat_tracker.parser
 {
     public class SatelliteModelConfigurator
     {
-        public SatelliteModel Configure(SatelliteModel satellite, LineType lineType, string lineValue)
+        public static SatelliteModel Configure(SatelliteModel satellite, LineType lineType, string lineValue)
         {
             if (satellite == null) throw new ArgumentNullException("satellite");
             if (string.IsNullOrEmpty(lineValue)) throw new ArgumentNullException("lineValue");
@@ -33,7 +34,9 @@ namespace sat_tracker.parser
                     break;
                 case LineType.RAofNode:
                     satellite.RAofNode = GetDegrees(lineValue);
-                    break;GetDegrees(lineValue);
+                    break;
+                case LineType.Eccentricity:
+                    satellite.Eccentricity = GetDegrees(lineValue);
                     break;
                 case LineType.ArgOfPerigee:
                     satellite.ArgOfPerigee = GetDegrees(lineValue);
@@ -45,7 +48,7 @@ namespace sat_tracker.parser
                     satellite.MeanMotion = GetDegrees(lineValue);
                     break;
                 case LineType.DecayRate:
-                    satellite.DecayRate = lineValue;
+                    satellite.DecayRate = GetDecayRate(lineValue);
                     break;
                 case LineType.EpochRev:
                     satellite.EpochRev = int.Parse(lineValue);
@@ -60,18 +63,19 @@ namespace sat_tracker.parser
 
         private static double GetEpochTime(string value)
         {
-            return double.Parse(value);
+            return double.Parse(value, NumberStyles.Any);
         }
 
-        private static decimal GetDegrees(string value)
+        private static double GetDegrees(string value)
         {
-            var toParse = Regex.Replace(value, "[a-zA-Z]", "");
-            return decimal.Parse(toParse);
+            var toParse = Regex.Replace(value, "[a-zA-Z/]", "").Trim();
+            return double.Parse(toParse, NumberStyles.Any);
         }
 
-        private static decimal GetDecayRate(string value)
+        private static double GetDecayRate(string value)
         {
-
+            var toParse = Regex.Replace(value, "rev/day\\^2", "").Trim();
+            return double.Parse(toParse, NumberStyles.Any);
         }
     }
 }
